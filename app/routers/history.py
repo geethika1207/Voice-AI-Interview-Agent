@@ -20,9 +20,10 @@ def get_history(db: Session = Depends(get_db), current_user=Depends(get_current_
         )
 
     result = []
-    analysis = []
 
     for i in interviews:
+
+        analysis = []
 
         for a in i.overall_analysis:     #i.overall_analysis correctly nested per interview to make sure the analysis are related to that interview
             analysis.append({

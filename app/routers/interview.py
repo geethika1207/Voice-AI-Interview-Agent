@@ -10,6 +10,7 @@ from ..services.tts_service import text_to_speech
 from ..services.stt_service import speech_to_text
 import os
 import uuid
+import traceback
 
 os.makedirs("temp", exist_ok=True)
 
@@ -124,13 +125,13 @@ async def answer_analysis(
             current_difficulty
         )
 
-        print(result["score"])
-        print(result["evaluation"])
+        print(result.get("score"))
+        print(result.get("evaluation"))
 
         # Update current question
         recent_response.answer = transcript
-        recent_response.marks = result["score"]
-        recent_response.evaluation = result["evaluation"]
+        recent_response.marks = result.get("score")
+        recent_response.evaluation = result.get("evaluation")
         recent_response.difficulty = current_difficulty
 
         # Insert next question
@@ -156,6 +157,7 @@ async def answer_analysis(
 
     except Exception as e:
         db.rollback()
+        traceback.print_exc()   
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"INTERNAL SERVER ERROR : {str(e)}"
