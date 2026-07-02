@@ -28,7 +28,7 @@ def get_interview_information(id:int, db:Session):
 
 
 def calculate_marks(marks):
-    total_marks = round(sum(marks)/len(marks))
+    total_marks = round((sum(marks) / len(marks)) * 10)
     return total_marks
 
 
