@@ -30,7 +30,7 @@ async def interview_topic(selected_topic : interview.InterviewTopic, db:Session=
         message = result.get("message")
         question = result.get("question")
 
-        speech_text = f"{message}. {question}"
+        speech_text = question
 
         audio_filename = await text_to_speech(speech_text)
 
