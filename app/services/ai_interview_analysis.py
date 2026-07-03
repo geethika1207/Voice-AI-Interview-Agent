@@ -214,4 +214,13 @@ The response must exactly follow this schema:
 
 """
     raw = ask_groq(analysis_prompt)
+
+    print("=" * 80)
+    print("RAW RESPONSE FROM GROQ:")
+    print(repr(raw))
+    print("=" * 80)
+
+    if not raw:
+        raise Exception("Groq returned an empty response.")
+
     return json.loads(raw)
