@@ -9,6 +9,8 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+print("========== NEW BACKEND DEPLOYED ==========")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
