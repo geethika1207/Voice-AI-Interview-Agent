@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .db.database import engine, Base
-from .routers import auth, interview, interview_result, history
+from .routers import auth, interview, interview_result, history, delete_history
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
@@ -29,3 +29,4 @@ app.include_router(auth.router)
 app.include_router(interview.router)
 app.include_router(interview_result.router)
 app.include_router(history.router)
+app.include_router(delete_history.router)
