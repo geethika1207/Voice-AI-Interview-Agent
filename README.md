@@ -1,203 +1,53 @@
-# 🎙️ Voice AI Interview Agent – AI-Powered Stateful Interview System
+# VoiceBench
 
-The Voice AI Interview Agent is a full-stack AI system that simulates real technical interviews through a complete Speech → AI → Speech pipeline.
+### A Low-Latency Event-Driven Voice AI Platform for Adaptive Topic-Focused Oral Assessment
 
-Unlike traditional interview practice tools that rely on static Q&A or post-interview feedback, this system runs a **stateful, dynamic interview session** where each response influences the next question, evaluation, and difficulty progression in real time.
+> A research-oriented voice AI platform that simulates real-time oral assessments through natural voice conversations. VoiceBench combines streaming speech recognition, adaptive questioning, conversational memory, and automated evaluation to create a low-latency interview experience across any learning domain—from computer science to science, aptitude, languages, and general knowledge.
 
-The system is designed to behave like a real interviewer — adaptive, contextual, and continuously evaluating performance throughout the session instead of only at the end.
+VoiceBench is an event-driven voice AI assessment platform designed to bridge the gap between traditional text-based AI systems and real-time spoken interactions. Instead of relying on typed responses, the platform conducts adaptive voice conversations that continuously evaluate a learner's understanding while dynamically adjusting question difficulty.
 
----
+The system employs a streaming architecture consisting of Speech-to-Text (STT), a conversational orchestration engine, Large Language Models (LLMs), and Text-to-Speech (TTS) synthesis to minimize interaction latency and create a natural interview experience. Every interview session is automatically evaluated, scored, and archived, enabling detailed performance analytics and longitudinal learning assessment.
 
-## 🚨 Problem Statement
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
 
-Most existing interview preparation tools fail in three critical ways:
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
 
-* Static question flows with no conversational intelligence
-* Generic feedback generated only after the interview ends
-* No adaptation based on user performance or response quality
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
 
-This results in a passive learning experience that does not simulate real interview pressure, reasoning, or adaptability.
+![Deepgram](https://img.shields.io/badge/Deepgram-STT-6E56CF)
 
----
+![Groq](https://img.shields.io/badge/Groq-Llama--3.3--70B-orange)
 
-## 💡 Solution
+![Edge TTS](https://img.shields.io/badge/Edge-TTS-0078D4)
 
-This system introduces a **stateful AI interview engine** that:
+![WebSockets](https://img.shields.io/badge/WebSocket-Streaming-success)
 
-* Conducts real-time adaptive interviews
-* Evaluates every response individually
-* Tracks difficulty progression dynamically
-* Maintains full session memory across turns
-* Generates structured feedback at both micro and macro levels
+![Architecture](https://img.shields.io/badge/Architecture-Event--Driven-ff6b35)
 
-The goal is to simulate an **actual technical interviewer**, not a chatbot.
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
----
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-## ⚙️ Key Features
+![Latency](https://img.shields.io/badge/Latency-Real--Time-brightgreen)
 
-### 🎙️ Real-Time Voice Interview Pipeline
-
-User speech is converted into text, processed by AI, and converted back into speech for natural conversational flow.
-
-### 🧠 Dynamic Question Generation
-
-Each next question is generated based on:
-
-* Previous answer quality
-* Current difficulty level
-* Interview progression state
-
-### 📊 Per-Response Evaluation System
-
-Every answer is evaluated independently with:
-
-* Individual scoring
-* Qualitative feedback
-* Difficulty tagging
-
-### 🗄️ Persistent Interview State
-
-All interview sessions are stored in PostgreSQL, including:
-
-* Questions asked
-* User responses
-* Scores and evaluations
-* Session progression state
-
-### 🔊 Speech Output Engine
-
-AI-generated questions are converted into natural speech using TTS for a realistic interview experience.
-
-### 📈 Final Session Analysis
-
-At the end of the interview, the system generates:
-
-* Overall performance score
-* Strength analysis
-* Weakness identification
-* Personalized improvement suggestions
-* Learning tags
-* Interview difficulty assessment
+![Interview](https://img.shields.io/badge/Assessment-Topic--Adaptive-blueviolet)
 
 ---
 
-## ⚙️ System Architecture
+## Technical Overview
 
-User (Speech Input)
-↓
-Speech-to-Text (Deepgram)
-↓
-FastAPI Backend (Interview Orchestrator)
-↓
-Groq LLM (Evaluation + Next Question Generation)
-↓
-PostgreSQL (Session + State Storage)
-↓
-Edge-TTS (Text-to-Speech)
-↓
-Audio Output to User
-
----
-
-## 🔄 Request Flow
-
-User starts interview session
-↓
-Backend initializes interview state
-↓
-User speaks answer
-↓
-Speech converted to text (STT)
-↓
-LLM evaluates response + assigns score
-↓
-State updated in PostgreSQL
-↓
-LLM generates next question dynamically
-↓
-Question converted to speech (TTS)
-↓
-Next interview cycle continues
-↓
-Final session triggers full analysis report
-
----
-
-## ⚙️ Tech Stack
-
-### Backend
-
-* FastAPI – Core backend framework
-* PostgreSQL – Session and state storage
-* SQLAlchemy – ORM layer
-* Groq LLM – Answer evaluation + question generation
-* Deepgram – Speech-to-Text engine
-* Edge-TTS – Text-to-Speech engine
-
-### AI Layer
-
-* LLM-based evaluation engine
-* Stateful prompt orchestration
-* Dynamic difficulty progression logic
-* Structured response parsing
-
-### Core Concepts Used
-
-* Stateful AI orchestration
-* Multi-step LLM pipelines
-* Real-time conversational systems
-* Event-driven backend design
-
----
-
-## 🧠 Challenges Faced
-
-### 1. Maintaining Interview State Across Turns
-
-The hardest problem was ensuring continuity between multiple user responses without losing context or resetting evaluation logic.
-
-### 2. Separating Per-Answer vs Final Evaluation
-
-Initially, feedback was too generic. Splitting micro-evaluation (per answer) and macro-evaluation (full session) significantly improved accuracy and usefulness.
-
-### 3. Latency in Voice Pipeline
-
-Speech-to-text + LLM + TTS introduced delay. Orchestration optimization became critical.
-
-### 4. Consistent Evaluation Formatting
-
-LLM responses were inconsistent until strict structured prompting was enforced.
-
----
-
-## 📌 Key Learnings
-
-* Voice AI systems are primarily orchestration problems, not model problems
-* Stateful design is significantly harder than stateless chat systems
-* Structured prompting is essential for production-grade AI systems
-* Real-time systems require strict control over latency and pipeline ordering
-* Separating evaluation layers improves output quality dramatically
-
----
-
-## 🚀 Future Improvements
-
-* Real-time streaming voice conversation (low latency pipeline)
-* Web-based frontend interview interface
-* Emotion and confidence detection from voice
-* Interview replay and analytics dashboard
-* Multi-language interview support
-* Resume-aware interview personalization
-
----
-
-## 👤 Author
-
-**Geethika Nagasri Tammineni**
-
-Aspiring Software Engineer | Backend + AI Systems Builder
-
-Focused on building production-grade AI systems that combine LLMs, voice interfaces, and scalable backend architecture.
-
----
+| Category | Specification |
+|-----------|---------------|
+| Project Type | Event-Driven Voice AI Assessment Platform |
+| Primary Language | Python 3.11 |
+| Backend Framework | FastAPI |
+| Frontend Framework | React |
+| Communication Protocol | REST API + WebSockets |
+| Speech-to-Text Engine | Deepgram Streaming API |
+| Large Language Model | Groq API (Llama 3.3 70B Versatile) |
+| Text-to-Speech Engine | Microsoft Edge TTS |
+| Voice Processing | Real-Time Streaming Pipeline |
+| State Management | Custom Event-Driven Interview State Machine |
+| Deployment | Render (Backend) + Vercel (Frontend) |
+| Data Storage | PostgreSQL |
+| Authentication | JWT Authentication |
