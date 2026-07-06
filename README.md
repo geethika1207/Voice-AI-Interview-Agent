@@ -8,6 +8,17 @@ VoiceBench is an event-driven voice AI assessment platform designed to bridge th
 
 The system employs a streaming architecture consisting of Speech-to-Text (STT), a conversational orchestration engine, Large Language Models (LLMs), and Text-to-Speech (TTS) synthesis to minimize interaction latency and create a natural interview experience. Every interview session is automatically evaluated, scored, and archived, enabling detailed performance analytics and longitudinal learning assessment.
 
+---
+
+## 🌐 Live Deployment
+
+| Service | URL |
+|----------|-----|
+| **Frontend** | [https://your-vercel-url.vercel.app](https://voice-bench-frontend-5iqx.vercel.app/) |
+| **Backend API** |[ https://your-render-url.onrender.com](https://voice-ai-interview-agent.onrender.com/docs) |
+
+---
+
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
