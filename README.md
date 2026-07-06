@@ -97,11 +97,11 @@ VoiceBench is built on a **low-latency event-driven architecture** that enables 
 VoiceBench processes every conversation through a streaming voice pipeline that continuously transforms speech into contextual AI interactions while maintaining interview state and minimizing response latency.
 
 <p align="center">
-<img src="images/Voice.png" width="100%">
+<img src="images/Voice_Pipeline.png" width="100%">
 </p>
 
 <p align="center">
-<b>Figure 1.</b> End-to-end event-driven architecture powering real-time adaptive voice conversations.
+<b>Figure 2.</b> End-to-end event-driven architecture powering real-time adaptive voice conversations.
 </p>
 ---
 
