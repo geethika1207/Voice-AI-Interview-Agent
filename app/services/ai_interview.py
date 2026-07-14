@@ -90,5 +90,5 @@ The response must exactly follow this schema:
 }}
 
 """
-    raw = ask_groq(prompt)
+    raw =  ask_groq(prompt)
     return json.loads(raw)

@@ -1,13 +1,13 @@
 import os
-from groq import Groq
+from groq import AsyncGroq
 from dotenv import load_dotenv
 import json
 
 load_dotenv()
-client = Groq(api_key=os.getenv("API_KEY"))
+client = AsyncGroq(api_key=os.getenv("API_KEY"))
 
-def ask_groq(prompt: str) -> str:
-    response = client.chat.completions.create(
+async def ask_groq(prompt: str) -> str:
+    response = await client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
             {"role": "user", "content": prompt}
@@ -24,7 +24,7 @@ def ask_groq(prompt: str) -> str:
     return raw.strip()
 
 
-def ai_analysis_prompt(Previous_question, User_answer, Topic, Question_difficulty):
+async def ai_analysis_prompt(Previous_question, User_answer, Topic, Question_difficulty):
     analysis_prompt = f"""
 You are a senior technical interviewer with over 20 years of experience conducting professional technical interviews across multiple engineering disciplines.
 
@@ -213,7 +213,7 @@ The response must exactly follow this schema:
 }}
 
 """
-    raw = ask_groq(analysis_prompt)
+    raw = await ask_groq(analysis_prompt)
 
     print("=" * 80)
     print("RAW RESPONSE FROM GROQ:")
